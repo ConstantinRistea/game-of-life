@@ -1,4 +1,4 @@
-co\uk\gol\Cell.class
-co\uk\gol\Main.class
-co\uk\gol\XYPosition.class
-co\uk\gol\Board.class
+co/uk/gol/Main.class
+co/uk/gol/XYPosition.class
+co/uk/gol/Cell.class
+co/uk/gol/Board.class

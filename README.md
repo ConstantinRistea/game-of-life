@@ -30,6 +30,15 @@ When applied these scenarios result in the following:
 	When the game evolves one turn
 	Then the next state also contains no live cells
 
+### Scenario 6: Expected game outcome for seeded grid
+    Given a game of life with the initial state… `[[0,0,0] [1,1,1] [0,0,0]]`
+    When the game evolves one turn
+    Then the next state is… `[[0,1,0] [1,0,1] [0,1,0]]`
+    When the game evolves another turn
+    Then the next state is… `[[0,0,0] [1,1,1] [0,0,0]]`
+
+
+
 ## How to run
 You need openjdk-11 and Maven
 
@@ -38,5 +47,7 @@ To run the tests execute `mvn test` from the console.
 
 To play with it open the project in any IDE and pass parameters to the main method.
 If you prefer to run it from the console. First: `mvn compile` and then:
- - on Linux/MacOS: `mvn exec:java -Dexec.mainClass="co.uk.gol.Main" -Dexec.args="[[1, 0],[0, 0]]"`
- - on Windows: `mvn exec:java -D"exec.mainClass"="co.uk.gol.Main" -D"exec.args"="[[1, 0],[0, 0]]"`
+ - on Linux/MacOS: `mvn exec:java -Dexec.mainClass="co.uk.gol.Main" -Dexec.args="[[0,0,0] [1,1,1] [0,0,0]]"`
+ - on Windows: `mvn exec:java -D"exec.mainClass"="co.uk.gol.Main" -D"exec.args"="[[0,0,0] [1,1,1] [0,0,0]]"`
+
+ The default pattern is pulsar, if you run the Main class without parameters you will see that.

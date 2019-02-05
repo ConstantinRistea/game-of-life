@@ -12,9 +12,9 @@ public class XYPositionTest {
   @Test
   public void testNeighbours() {
     assertArrayEquals("Neighbours are not identical", origin.getNeighbours().toArray(), new XYPosition[]{
-      new XYPosition(1, 0),
-      one,
-      new XYPosition(0, 1)
+            new XYPosition(1, 0),
+            one,
+            new XYPosition(0, 1)
     });
 
     assertArrayEquals("Neighbours are not identical", one.getNeighbours().toArray(), new XYPosition[]{

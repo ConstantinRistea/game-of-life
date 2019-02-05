@@ -1,19 +1,19 @@
 package co.uk.gol;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import static java.lang.Integer.max;
+import static java.util.stream.Collectors.toSet;
 
-class XYPosition {
-
-  private int x;
-
-  private int y;
+final class XYPosition {
+  // because these are final, we don't need getters
+  final int x;
+  final int y;
 
   /**
    * We're enforcing only positive x, y values as these represent indices in our Vectors
+   *
    * @param x the row
    * @param y the column
    */
@@ -22,8 +22,11 @@ class XYPosition {
     this.y = max(y, 0);
   }
 
+  /**
+   * @return all your neighbours, for edge cases, e.g. (0,0), exclude yourself
+   */
   Set<XYPosition> getNeighbours() {
-    Set<XYPosition> allPossibleNeighbors = new HashSet<>(Arrays.asList(
+    return Stream.of(
             new XYPosition(x - 1, y - 1), //upper left
             new XYPosition(x, y - 1), //upper
             new XYPosition(x + 1, y - 1), // upper right
@@ -32,27 +35,7 @@ class XYPosition {
             new XYPosition(x - 1, y + 1), //lower left
             new XYPosition(x, y + 1), //lower
             new XYPosition(x + 1, y + 1) //lower right
-    ));
-
-    // you can't be your own neighbour
-    allPossibleNeighbors.removeIf((xy) -> xy.x == this.x && xy.y == this.y);
-    return allPossibleNeighbors;
-  }
-
-  int getX() {
-    return x;
-  }
-
-  void setX(int x) {
-    this.x = x;
-  }
-
-  int getY() {
-    return y;
-  }
-
-  void setY(int y) {
-    this.y = y;
+    ).filter((xy) -> xy.x != this.x || xy.y != this.y).collect(toSet());
   }
 
   @Override
@@ -60,8 +43,7 @@ class XYPosition {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     XYPosition that = (XYPosition) o;
-    return x == that.x &&
-            y == that.y;
+    return x == that.x && y == that.y;
   }
 
   @Override
