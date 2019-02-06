@@ -66,12 +66,12 @@ public class BoardTest {
    */
   @Test
   public void testOvercrowding() {
-    Board board = new Board(parseCells( "[1,1,1] [1,1,1] [1,1,1]"));
-    Board evo1 = board.evolve();
-    Board evo2 = evo1.evolve();
-    assertEquals("Evolution is not as expected", "[1,0,1] [0,0,0] [1,0,1]", buildBits(evo1));
-    assertEquals("Evolution is not as expected", "[0,0,0] [0,0,0] [0,0,0]", buildBits(evo2));
+    testBoardEvolution("[1,1,1] [1,1,1] [1,1,1]", "[1,0,1] [0,0,0] [1,0,1]");
+  }
 
+  private void testBoardEvolution(String input, String output) {
+    Board board = new Board(parseCells(input));
+    assertEquals("Evolution is not as expected", output, buildBits(board.evolve()));
   }
 
   /***
@@ -93,8 +93,8 @@ public class BoardTest {
    */
   @Test
   public void testSurvival() {
-    Board board = new Board(parseCells("[1,0,0] [0,1,0] [0,0,1]"));
-    assertEquals("Evolution is not as expected", "[0,0,0] [0,1,0] [0,0,0]", buildBits(board.evolve()));
+    testBoardEvolution("[1,0,0] [0,1,0] [0,0,1]", "[0,0,0] [0,1,0] [0,0,0]");
+
 
   }
 
@@ -114,22 +114,11 @@ public class BoardTest {
    *        [0 0 0]
    *      ]
    *
-   *       [
-   *        [1 1 0]
-   *        [1 1 0]
-   *        [0 0 0]
-   *      ]
+   *
    */
   @Test
   public void testCreationOfLife() {
-    Board board = new Board(parseCells("[0,1,0] [1,1,0] [0,0,0]"));
-    Board evo1 = board.evolve();
-    Board evo2 = evo1.evolve();
-    printCells(board);
-    printCells(evo1);
-    printCells(evo2);
-    assertTrue ("Board is empty when it has an element", evo1.isAlive());
-    assertTrue("Board is empty when evolving from underpopulation", evo2.isAlive());
+    testBoardEvolution("[0,1,0] [1,1,0] [0,0,0]","[1,1,0] [1,1,0] [0,0,0]");
   }
 
   /***
@@ -151,14 +140,8 @@ public class BoardTest {
    */
   @Test
   public void testGridWithNoLifeCells() {
-    Board board = new Board(parseCells("[0,0,0] [0,0,0] [0,0,0]"));
-    Board evo1 = board.evolve();
-    Board evo2 = evo1.evolve();
-    printCells(board);
-    printCells(evo1);
-    printCells(evo2);
-    assertEquals("Board is empty when it has an element", false, evo1.isAlive());
-    assertTrue("Board is empty when evolving from underpopulation", !evo2.isAlive());
+    testBoardEvolution("[0,0,0] [0,0,0] [0,0,0]","[0,0,0] [0,0,0] [0,0,0]");
+
   }
 
   /***
@@ -184,14 +167,11 @@ public class BoardTest {
    */
   @Test
   public void testExpectedGameOutcomeForSeededGrid() {
-    Board board = new Board(parseCells("[0,0,0] [1,1,1] [0,0,0]"));
-    Board evo1 = board.evolve();
-    Board evo2 = evo1.evolve();
-    printCells(board);
-    printCells(evo1);
-    printCells(evo2);
-    assertTrue ("Board is empty when it has an element", evo1.isAlive());
-    assertTrue("Board is empty when evolving from underpopulation", evo2.isAlive());
+    String initial = "[0,0,0] [1,1,1] [0,0,0]";
+    String evolved = "[0,1,0] [0,1,0] [0,1,0]";
+    testBoardEvolution(initial, evolved);
+    testBoardEvolution(evolved, initial);
+
   }
 
 

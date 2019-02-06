@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7671c440-729a-4fc1-8481-a37e9f04ec28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uk/gol/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uk/gol/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/co/uk/gol/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/uk/gol/BoardTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,11 +46,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/co/uk/gol/BoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
-              <caret line="95" column="67" lean-forward="true" selection-start-line="95" selection-start-column="67" selection-end-line="95" selection-end-column="67" />
+            <state relative-caret-position="139">
+              <caret line="173" column="4" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
               <folding>
                 <element signature="e#334#335#0" expanded="true" />
                 <element signature="e#425#426#0" expanded="true" />
+                <element signature="e#1319#1320#0" expanded="true" />
+                <element signature="e#1401#1402#0" expanded="true" />
+                <element signature="e#2281#2282#0" expanded="true" />
+                <element signature="e#2362#2363#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,7 +142,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-15" />
     <option name="width" value="1950" />
     <option name="height" value="2175" />
@@ -221,7 +222,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549495028922" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549496822700" />
     <property name="options.lastSelected" value="preferences.keymap" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -249,7 +250,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BoardTest.testSurvival">
+  <component name="RunManager" selected="JUnit.BoardTest.testExpectedGameOutcomeForSeededGrid">
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -429,11 +430,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BoardTest.testExpectedGameOutcomeForSeededGrid" />
+        <item itemvalue="JUnit.BoardTest.testCreationOfLife" />
         <item itemvalue="JUnit.BoardTest.testSurvival" />
         <item itemvalue="JUnit.BoardTest.testOvercrowding" />
-        <item itemvalue="JUnit.BoardTest.testExpectedGameOutcomeForSeededGrid" />
         <item itemvalue="JUnit.BoardTest.testGridWithNoLifeCells" />
-        <item itemvalue="JUnit.BoardTest.testCreationOfLife" />
       </list>
     </recent_temporary>
   </component>
@@ -489,24 +490,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BoardTest_testSurvival - 2019.02.06 at 18h 35m 48s.xml">
-      <configuration name="BoardTest.testSurvival" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BoardTest_testCreationOfLife - 2019.02.06 at 18h 36m 05s.xml">
-      <configuration name="BoardTest.testCreationOfLife" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BoardTest_testGridWithNoLifeCells - 2019.02.06 at 18h 36m 11s.xml">
-      <configuration name="BoardTest.testGridWithNoLifeCells" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BoardTest_testExpectedGameOutcomeForSeededGrid - 2019.02.06 at 18h 36m 17s.xml">
-      <configuration name="BoardTest.testExpectedGameOutcomeForSeededGrid" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BoardTest_testOvercrowding - 2019.02.06 at 22h 59m 05s.xml">
-      <configuration name="BoardTest.testOvercrowding" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BoardTest_testOvercrowding - 2019.02.06 at 23h 00m 57s.xml">
-      <configuration name="BoardTest.testOvercrowding" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BoardTest_testOvercrowding - 2019.02.06 at 23h 03m 15s.xml">
       <configuration name="BoardTest.testOvercrowding" configurationId="JUnit" />
     </history-entry>
@@ -519,9 +502,27 @@
     <history-entry file="BoardTest_testSurvival - 2019.02.06 at 23h 17m 12s.xml">
       <configuration name="BoardTest.testSurvival" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BoardTest_testCreationOfLife - 2019.02.06 at 23h 23m 53s.xml">
+      <configuration name="BoardTest.testCreationOfLife" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BoardTest_testCreationOfLife - 2019.02.06 at 23h 25m 08s.xml">
+      <configuration name="BoardTest.testCreationOfLife" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BoardTest_testOvercrowding - 2019.02.06 at 23h 29m 54s.xml">
+      <configuration name="BoardTest.testOvercrowding" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BoardTest_testSurvival - 2019.02.06 at 23h 33m 12s.xml">
+      <configuration name="BoardTest.testSurvival" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BoardTest_testCreationOfLife - 2019.02.06 at 23h 37m 51s.xml">
+      <configuration name="BoardTest.testCreationOfLife" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BoardTest_testExpectedGameOutcomeForSeededGrid - 2019.02.06 at 23h 46m 26s.xml">
+      <configuration name="BoardTest.testExpectedGameOutcomeForSeededGrid" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1549" height="877" extended-state="7" />
+    <frame x="-6" y="-6" width="1549" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
@@ -585,18 +586,6 @@
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="right" x="0" y="0" width="270" height="600" id="Documentation" order="9" side_tool="true" weight="0.32956383" />
     </layout-to-restore>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/co/uk/gol/BoardTest.java</url>
-          <line>95</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1.jar!/junit/framework/TestCase.class">
@@ -705,11 +694,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/co/uk/gol/BoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="95" column="67" lean-forward="true" selection-start-line="95" selection-start-column="67" selection-end-line="95" selection-end-column="67" />
+        <state relative-caret-position="139">
+          <caret line="173" column="4" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
           <folding>
             <element signature="e#334#335#0" expanded="true" />
             <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#1319#1320#0" expanded="true" />
+            <element signature="e#1401#1402#0" expanded="true" />
+            <element signature="e#2281#2282#0" expanded="true" />
+            <element signature="e#2362#2363#0" expanded="true" />
           </folding>
         </state>
       </provider>
