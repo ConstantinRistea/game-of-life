@@ -33,6 +33,7 @@ final class Main {
     while (board.isAlive()) {
       board = board.evolve();
       printCells(board);
+      System.out.println(buildBits (board));
     }
   }
 
@@ -65,6 +66,18 @@ final class Main {
       row.forEach((cell) -> System.out.print(cell.isAlive ? '\u25A0' : '\u25A1'));
       System.out.println();
     });
+  }
+
+  static String buildBits(Board board) {
+    StringBuilder sb = new StringBuilder();
+    board.cells.forEach((row) -> {
+      sb.append("[");
+      row.forEach((cell) -> sb.append(cell.isAlive ? "1," : "0,"));
+      final int len = sb.length();
+      sb.delete(len-1, len);
+      sb.append("] ");
+    });
+    return sb.toString().trim();
   }
 
 }

@@ -4,10 +4,8 @@ import org.junit.Test;
 
 import java.util.Vector;
 
-import static co.uk.gol.Main.parseCells;
-import static co.uk.gol.Main.printCells;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static co.uk.gol.Main.*;
+import static org.junit.Assert.*;
 
 /**
  * Unit test for simple App.
@@ -71,14 +69,12 @@ public class BoardTest {
     Board board = new Board(parseCells( "[1,1,1] [1,1,1] [1,1,1]"));
     Board evo1 = board.evolve();
     Board evo2 = evo1.evolve();
-    printCells(board);
-    printCells(evo1);
-    printCells(evo2);
-    assertTrue("Board is empty when it has an element", evo1.isAlive());
-    assertFalse("Board is empty when evolving from underpopulation", evo2.isAlive());
+    assertEquals("Evolution is not as expected", "[1,0,1] [0,0,0] [1,0,1]", buildBits(evo1));
+    assertEquals("Evolution is not as expected", "[0,0,0] [0,0,0] [0,0,0]", buildBits(evo2));
+
   }
 
-    /***
+  /***
    *  Scenario 3: Survival
    *       [
    *        [1 0 0]
@@ -93,89 +89,111 @@ public class BoardTest {
    *        [0 0 0]
    *      ]
    *
+   *
+   */
+  @Test
+  public void testSurvival() {
+    Board board = new Board(parseCells("[1,0,0] [0,1,0] [0,0,1]"));
+    assertEquals("Evolution is not as expected", "[0,0,0] [0,1,0] [0,0,0]", buildBits(board.evolve()));
+
+  }
+
+
+  /***
+   *  Scenario 4: Creation of Life
+   *       [
+   *        [0 1 0]
+   *        [1 1 0]
+   *        [0 0 0]
+   *      ]
+   *
+   *  Expected outcome:
+   *       [
+   *        [1 1 0]
+   *        [1 1 0]
+   *        [0 0 0]
+   *      ]
+   *
+   *       [
+   *        [1 1 0]
+   *        [1 1 0]
+   *        [0 0 0]
+   *      ]
+   */
+  @Test
+  public void testCreationOfLife() {
+    Board board = new Board(parseCells("[0,1,0] [1,1,0] [0,0,0]"));
+    Board evo1 = board.evolve();
+    Board evo2 = evo1.evolve();
+    printCells(board);
+    printCells(evo1);
+    printCells(evo2);
+    assertTrue ("Board is empty when it has an element", evo1.isAlive());
+    assertTrue("Board is empty when evolving from underpopulation", evo2.isAlive());
+  }
+
+  /***
+   *  Scenario 5: Grid with no live cells
    *       [
    *        [0 0 0]
    *        [0 0 0]
    *        [0 0 0]
    *      ]
+   *
+   *  Expected outcome:
+   *       [
+   *        [0 0 0]
+   *        [0 0 0]
+   *        [0 0 0]
+   *      ]
+   *
+   *
    */
-    @Test
-    public void testSurvival() {
-      Board board = new Board(parseCells("[1,0,0] [0,1,0] [0,0,1]"));
-      Board evo1 = board.evolve();
-      Board evo2 = evo1.evolve();
-      printCells(board);
-      printCells(evo1);
-      printCells(evo2);
-      assertTrue("Board is empty when it has an element", evo1.isAlive());
-      assertFalse("Board is empty when evolving from underpopulation", evo2.isAlive());
-    }
+  @Test
+  public void testGridWithNoLifeCells() {
+    Board board = new Board(parseCells("[0,0,0] [0,0,0] [0,0,0]"));
+    Board evo1 = board.evolve();
+    Board evo2 = evo1.evolve();
+    printCells(board);
+    printCells(evo1);
+    printCells(evo2);
+    assertEquals("Board is empty when it has an element", false, evo1.isAlive());
+    assertTrue("Board is empty when evolving from underpopulation", !evo2.isAlive());
+  }
+
+  /***
+   *  Scenario 6: Expected game outcome for seeded grid*
+   *       [
+   *        [0 0 0]
+   *        [1 1 1]
+   *        [0 0 0]
+   *      ]
+   *
+   *  Expected outcome:
+   *       [
+   *        [0 1 0]
+   *        [0 1 0]
+   *        [0 1 0]
+   *      ]
+   *
+   *       [
+   *        [0 0 0]
+   *        [1 1 1]
+   *        [0 0 0]
+   *      ]
+   */
+  @Test
+  public void testExpectedGameOutcomeForSeededGrid() {
+    Board board = new Board(parseCells("[0,0,0] [1,1,1] [0,0,0]"));
+    Board evo1 = board.evolve();
+    Board evo2 = evo1.evolve();
+    printCells(board);
+    printCells(evo1);
+    printCells(evo2);
+    assertTrue ("Board is empty when it has an element", evo1.isAlive());
+    assertTrue("Board is empty when evolving from underpopulation", evo2.isAlive());
+  }
 
 
-  //  /***
-//   *  Scenario 4: Creation of Life
-//   *       [
-//   *        [1 1 1]
-//   *        [1 1 1]
-//   *        [1 1 1]
-//   *      ]
-//   *
-//   *  Expected outcome:
-//   *       [
-//   *        [1 0 1]
-//   *        [0 0 0]
-//   *        [1 0 1]
-//   *      ]
-//   *
-//   *       [
-//   *        [0 0 0]
-//   *        [0 0 0]
-//   *        [0 0 0]
-//   *      ]
-//   */
 
-
-  //  /***
-//   *  Scenario 5: Grid with no live cells
-//   *       [
-//   *        [1 1 1]
-//   *        [1 1 1]
-//   *        [1 1 1]
-//   *      ]
-//   *
-//   *  Expected outcome:
-//   *       [
-//   *        [1 0 1]
-//   *        [0 0 0]
-//   *        [1 0 1]
-//   *      ]
-//   *
-//   *       [
-//   *        [0 0 0]
-//   *        [0 0 0]
-//   *        [0 0 0]
-//   *      ]
-//   */
-
-  //  /***
-//   *  Scenario 6: Expected game outcome for seeded grid
-//   *       [
-//   *        [0,0,0]
-//   *        [1,1,1]
-//   *        [0,0,0]
-//   *      ]
-//   *
-//   *  Expected outcome:
-//   *       [
-//   *        [1 0 1]
-//   *        [0 0 0]
-//   *        [1 0 1]
-//   *      ]
-//   *
-//   *       [
-//   *        [0 0 0]
-//   *        [0 0 0]
-//   *        [0 0 0]
-//   *      ]
-//   */
 }
